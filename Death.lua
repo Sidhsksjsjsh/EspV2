@@ -5,15 +5,12 @@ local Window_1 = Library:NewWindow("ESP")
 local Tab1 = Window_1:NewSection("ESP")
 
 
-Tab1:CreateToggle("Enable esp", function(value)
---// Made by Blissful#4992
---// Locals:
 local workspace = game:GetService("Workspace")
 local player = game:GetService("Players").LocalPlayer
 local camera = workspace.CurrentCamera
 
 --// Settings:
-local on = value -- Use this if your making gui
+local on = false -- Use this if your making gui
 
 local Box_Color = Color3.fromRGB(0, 255, 50)
 local Box_Thickness = 1.4
@@ -322,4 +319,19 @@ game.Players.PlayerAdded:Connect(function(newplr)
     end
     coroutine.wrap(ESP)()
 end)
+
+Tab1:CreateToggle("Enable esp", function(value)
+        on = value
+end)
+
+Tab1:CreateToggle("Tracers", function(value)
+        Tracers = value
+end)
+
+Tab1:CreateToggle("Thickness", function(value)
+        Autothickness = value
+end)
+
+Tab1:CreateToggle("Team check", function(value)
+        Team_Check = value
 end)
